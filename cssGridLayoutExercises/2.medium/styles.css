@@ -1,0 +1,84 @@
+body {
+    margin: 0;
+    background-color: red;
+}
+
+
+/* Whats the purpose of this thing? */
+h1 {
+    line-height: 0;
+}
+
+/*  So it looks like a grid will accomodate as many
+    elements as it can fit. The remainder seem to be excluded 
+    from the grid. Nay. The remaining elements seem to be
+    automatically formatted. For example, the ".grid" class 
+    below creates a pattern of three columns. If there are only
+    three elements, the grid consists of just one column and 
+    one row. But if there are four elements, then the grid 
+    automatically assigns the remaining element into 
+    (column 1, row 2). I believe this means that if the entire
+    format of a page is to consist of only three columns, then
+    creating rows to accomodate html elements would be redundant. 
+
+    I conducted a test by creating extra footer elements.
+    I confirmed that elements are formatted into the confines of 
+    the grid. If the elements of the grid surpass the length of
+    its confines, then the elements are forced to fit within the 
+    confines of the grid. 
+*/
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.grid__header {
+    background-color: #eee;
+    padding: 10px;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+
+.grid__body {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
+
+.grid__sidebar {
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
+
+.grid__footer {
+    background-color: #eee;
+    padding: 10px;
+    text-align: center;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row-start: 3;
+    grid-row-end: 4;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between
+}
+
+.menu {
+    list-style-type: none;
+    margin: 0;
+}
+
+.menu > li {
+    float: left;
+    margin-right: 20px;
+}
